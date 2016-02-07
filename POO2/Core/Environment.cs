@@ -10,8 +10,7 @@ namespace POO2.Core
         {
             for(int i = 0; i < objectList.Count; i++)
             {
-                if(objectList[i].m_isAffectedByGravity)
-                    objectList[i].Move(deltaTime);
+                objectList[i].Move(deltaTime);
             }
         }
 

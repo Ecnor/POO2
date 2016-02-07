@@ -43,9 +43,9 @@ namespace POO2.Core
             m_A.m_velocity -= m_A.m_invMass * impulse;
             m_B.m_velocity += m_B.m_invMass * impulse;
           
-            /*
+            
             // Apply correction
-            const float PERCENT = 0.01f; // usually 20% to 80%
+            const float PERCENT = 0.8f; // usually 20% to 80%
             const float SLOP = 0.01f; // usually 0.01 to 0.1
 
             Vector2 correction = Math.Max(m_penetration - SLOP, 0) / (m_A.m_invMass + m_B.m_invMass) 
@@ -53,7 +53,7 @@ namespace POO2.Core
 
             m_A.m_position -= m_A.m_invMass * correction;
             m_B.m_position += m_B.m_invMass * correction; 
-            */         
+            
         }
     }
 }

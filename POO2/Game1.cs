@@ -38,20 +38,12 @@ namespace POO2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-            objectList.Add(new Ball(new Vector2(350, 0), Content.Load<Texture2D>("cercle"), 10, 1));
-            objectList.Add(new Brick(new Vector2(200, 400), Content.Load<Texture2D>("rectangle2"), 10, 1));
-
-            /*objectList.Add(new Ball(new Vector2(300, 200), Content.Load<Texture2D>("cercle"), 10, 1));
-            objectList.Add(new Ball(new Vector2(330, 200), Content.Load<Texture2D>("cercle"), 10, 1));
-            objectList.Add(new Ball(new Vector2(360, 200), Content.Load<Texture2D>("cercle"), 10, 1));
-            objectList.Add(new Ball(new Vector2(390, 200), Content.Load<Texture2D>("cercle"), 10, 1));*/
+            objectList.Add(new Ball(new Vector2(300, 200), Content.Load<Texture2D>("cercle"), 10, 1));
+            objectList.Add(new Brick(new Vector2(100, 550), Content.Load<Texture2D>("rectangle2"), 0, 1));
+            objectList.Add(new Brick(new Vector2(500, 500), Content.Load<Texture2D>("rectangle2"), 0, 1));
+            objectList.Add(new Brick(new Vector2(100, 0), Content.Load<Texture2D>("rectangle600_50"), 0, 1));
 
             objectList[0].m_velocity = new Vector2(0, 100);
-
-            //objectList[1].m_isAffectedByGravity = false;
-            //objectList[2].m_isAffectedByGravity = false;
-            //objectList[3].m_isAffectedByGravity = false;
-            //objectList[4].m_isAffectedByGravity = false;
 
             base.Initialize();
         }

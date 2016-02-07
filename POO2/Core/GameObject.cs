@@ -17,8 +17,6 @@ namespace POO2.Core
 
         public Hitbox m_hitbox;
 
-        public bool m_isAffectedByGravity = true;
-
         public GameObject(Vector2 position, Texture2D texture, float mass, float restitution)
         {
             m_position = position;
