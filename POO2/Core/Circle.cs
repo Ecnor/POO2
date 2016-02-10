@@ -1,6 +1,4 @@
-﻿using System;
-
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 
 namespace POO2.Core
 {

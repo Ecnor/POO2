@@ -57,7 +57,6 @@ namespace POO2.Core
 
                         if(Hitbox.AABBvsCircle(m))
                         {
-                            Debug.WriteLine("Collision");
                             m.ResolveCollision();
                         }
                     }

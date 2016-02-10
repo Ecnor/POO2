@@ -39,11 +39,20 @@ namespace POO2
         {
             // TODO: Add your initialization logic here
             objectList.Add(new Ball(new Vector2(300, 200), Content.Load<Texture2D>("cercle"), 10, 1));
-            objectList.Add(new Brick(new Vector2(100, 550), Content.Load<Texture2D>("rectangle2"), 0, 1));
-            objectList.Add(new Brick(new Vector2(500, 500), Content.Load<Texture2D>("rectangle2"), 0, 1));
-            objectList.Add(new Brick(new Vector2(100, 0), Content.Load<Texture2D>("rectangle600_50"), 0, 1));
+            objectList.Add(new Ball(new Vector2(250, 200), Content.Load<Texture2D>("cercle"), 10, 1));
+            objectList.Add(new Ball(new Vector2(200, 200), Content.Load<Texture2D>("cercle"), 10, 1));
+            objectList.Add(new Ball(new Vector2(350, 200), Content.Load<Texture2D>("cercle"), 10, 1));
 
-            objectList[0].m_velocity = new Vector2(0, 100);
+            objectList.Add(new Brick(new Vector2(100, 550), Content.Load<Texture2D>("rectangle600_20"), 0, 1));
+            objectList.Add(new Brick(new Vector2(100, 10), Content.Load<Texture2D>("rectangle600_20"), 0, 1));
+
+            objectList.Add(new Brick(new Vector2(20, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 1));
+            objectList.Add(new Brick(new Vector2(750, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 1));
+
+            objectList[0].m_velocity = new Vector2(10, 100);
+            objectList[1].m_velocity = new Vector2(-50, 50);
+            objectList[2].m_velocity = new Vector2(-10, 75);
+            objectList[3].m_velocity = new Vector2(30, 80);
 
             base.Initialize();
         }
@@ -58,6 +67,7 @@ namespace POO2
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+            
         }
 
         /// <summary>

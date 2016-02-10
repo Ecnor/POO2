@@ -36,24 +36,32 @@ namespace POO2.Core
 
             // Calculate impulse scalar
             float j = -(1 + e) * velocityAlongNormal;
-            j /= m_A.m_invMass + m_B.m_invMass;
-
+            float massSum = m_A.m_invMass + m_B.m_invMass;
+            if(massSum == 0)
+            {
+                j = 0;
+            }
+            else
+            {
+                j /= m_A.m_invMass + m_B.m_invMass;
+            }
+            
             // Apply impulse
             Vector2 impulse = j * m_normal;
             m_A.m_velocity -= m_A.m_invMass * impulse;
             m_B.m_velocity += m_B.m_invMass * impulse;
-          
-            
-            // Apply correction
-            const float PERCENT = 0.8f; // usually 20% to 80%
-            const float SLOP = 0.01f; // usually 0.01 to 0.1
+             
+            /*       
+            // Apply correction          
+            const float PERCENT = 0.2f; // usually 20% to 80%
+            const float SLOP = 0.1f; // usually 0.01 to 0.1
 
             Vector2 correction = Math.Max(m_penetration - SLOP, 0) / (m_A.m_invMass + m_B.m_invMass) 
                 * PERCENT * m_normal;
 
             m_A.m_position -= m_A.m_invMass * correction;
-            m_B.m_position += m_B.m_invMass * correction; 
-            
+            m_B.m_position += m_B.m_invMass * correction;
+            */             
         }
     }
 }
