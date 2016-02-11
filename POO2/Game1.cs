@@ -38,21 +38,23 @@ namespace POO2
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+            Environment.gravity = new Vector2(0, 100);
+
             objectList.Add(new Ball(new Vector2(300, 200), Content.Load<Texture2D>("cercle"), 1, 1));
             objectList.Add(new Ball(new Vector2(250, 200), Content.Load<Texture2D>("cercle"), 1, 1));
             objectList.Add(new Ball(new Vector2(200, 200), Content.Load<Texture2D>("cercle"), 1, 1));
             objectList.Add(new Ball(new Vector2(350, 200), Content.Load<Texture2D>("cercle"), 1, 1));
 
-            objectList.Add(new Brick(new Vector2(100, 550), Content.Load<Texture2D>("rectangle600_20"), 0, 0.9f));
-            objectList.Add(new Brick(new Vector2(100, 10), Content.Load<Texture2D>("rectangle600_20"), 0, 0.9f));
+            objectList.Add(new Brick(new Vector2(100, 550), Content.Load<Texture2D>("rectangle600_20"), 0, 0.5f));
+            objectList.Add(new Brick(new Vector2(100, 10), Content.Load<Texture2D>("rectangle600_20"), 0, 0.5f));
 
-            objectList.Add(new Brick(new Vector2(20, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 0.9f));
-            objectList.Add(new Brick(new Vector2(750, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 0.9f));
+            objectList.Add(new Brick(new Vector2(20, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 0.5f));
+            objectList.Add(new Brick(new Vector2(750, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 0.5f));
 
-            objectList[0].m_velocity = new Vector2(10, 500);
-            objectList[1].m_velocity = new Vector2(-500, 50);
-            objectList[2].m_velocity = new Vector2(-10, 75);
-            objectList[3].m_velocity = new Vector2(30, 80);
+            objectList[0].m_velocity = new Vector2(10, 50);
+            objectList[1].m_velocity = new Vector2(-10, 50);
+            objectList[2].m_velocity = new Vector2(22, 50);
+            objectList[3].m_velocity = new Vector2(18, 50);
 
             base.Initialize();
         }

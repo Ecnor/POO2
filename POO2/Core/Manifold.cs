@@ -40,28 +40,41 @@ namespace POO2.Core
             if(massSum == 0)
             {
                 j = 0;
+                massSum = 1;
             }
             else
             {
-                j /= m_A.m_invMass + m_B.m_invMass;
+                j /= massSum;
             }
             
             // Apply impulse
             Vector2 impulse = j * m_normal;
             m_A.m_velocity -= m_A.m_invMass * impulse;
             m_B.m_velocity += m_B.m_invMass * impulse;
-             
-            /*       
-            // Apply correction          
-            const float PERCENT = 0.2f; // usually 20% to 80%
-            const float SLOP = 0.1f; // usually 0.01 to 0.1
 
-            Vector2 correction = Math.Max(m_penetration - SLOP, 0) / (m_A.m_invMass + m_B.m_invMass) 
-                * PERCENT * m_normal;
+            float PERCENT;
+            const float SLOP = 0.01f;
 
-            m_A.m_position -= m_A.m_invMass * correction;
-            m_B.m_position += m_B.m_invMass * correction;
-            */             
+            if (m_A.m_invMass == 0 || m_B.m_invMass == 0)
+            {
+                // Apply correction          
+                PERCENT = 0.2f; // usually 20% to 80%
+
+                Vector2 correction = (Math.Max(m_penetration - SLOP, 0.0f) / massSum) * PERCENT * Vector2.Normalize(m_normal);
+
+                m_A.m_position -= m_A.m_invMass * correction;
+                m_B.m_position += m_B.m_invMass * correction;
+            }
+            else
+            {
+                // Apply correction          
+                PERCENT = 0.0007f; // usually 20% to 80%
+
+                Vector2 correction = (Math.Max(m_penetration - SLOP, 0.0f) / massSum) * PERCENT * Vector2.Normalize(m_normal);
+
+                m_A.m_position -= m_A.m_invMass * correction;
+                m_B.m_position += m_B.m_invMass * correction;
+            }
         }
     }
 }

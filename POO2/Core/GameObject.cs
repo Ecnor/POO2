@@ -9,8 +9,7 @@ namespace POO2.Core
         public Vector2 m_velocity;
 
         public Texture2D m_texture;
-
-        public float m_baseVelocity = 0;
+        
         public float m_invMass;
         public float m_restitution;
 
@@ -31,8 +30,11 @@ namespace POO2.Core
 
         public virtual void Move(float deltaTime)
         {
-            m_position.X += (1 / 2) * (deltaTime * deltaTime) + m_velocity.X * deltaTime;
-            m_position.Y += (1 / 2) * (deltaTime * deltaTime) + m_velocity.Y * deltaTime;
+            m_velocity.X += (m_invMass * Environment.gravity.X) * deltaTime;
+            m_position.X += m_velocity.X * deltaTime;
+
+            m_velocity.Y += (m_invMass * Environment.gravity.Y) * deltaTime;
+            m_position.Y += m_velocity.Y * deltaTime;
         }
 
         public void Draw(SpriteBatch spriteBatch)
