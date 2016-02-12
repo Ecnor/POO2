@@ -12,6 +12,8 @@ namespace POO2.Core
         
         public float m_invMass;
         public float m_restitution;
+        public float m_staticFriction = 0.2f;
+        public float m_dynamicFriction = 0.2f;
 
         public Hitbox m_hitbox;
 
@@ -26,6 +28,7 @@ namespace POO2.Core
                 m_invMass = 1 / mass;
 
             m_restitution = restitution;
+
         }
 
         public virtual void Move(float deltaTime)

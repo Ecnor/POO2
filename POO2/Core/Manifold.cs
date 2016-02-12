@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace POO2.Core
 {
@@ -52,6 +53,35 @@ namespace POO2.Core
             m_A.m_velocity -= m_A.m_invMass * impulse;
             m_B.m_velocity += m_B.m_invMass * impulse;
 
+            /*
+            // Friction
+            Vector2 rv = m_B.m_velocity - m_A.m_velocity;
+
+            Vector2 tangent = rv - Vector2.Dot(rv, m_normal) * m_normal;
+            Vector2.Normalize(tangent);
+
+            float jt = -Vector2.Dot(rv, tangent);
+            jt /= massSum;
+
+            float mu = PythagoreanSolve(m_A.m_staticFriction, m_B.m_staticFriction);
+
+            Vector2 frictionImpulse;
+            if (Math.Abs(jt) < j * mu)
+                frictionImpulse = jt * tangent;
+            else
+            {
+                float dynamicFriction = PythagoreanSolve(m_A.m_dynamicFriction, m_B.m_dynamicFriction);
+                frictionImpulse = -j * tangent * dynamicFriction;
+            }
+
+            Debug.WriteLine("frictionImpulse= " + frictionImpulse);
+
+            // Apply Friction
+            m_A.m_velocity -= m_A.m_invMass * frictionImpulse;
+            m_B.m_velocity += m_B.m_invMass * frictionImpulse;
+            */
+
+            // Correction
             float PERCENT;
             const float SLOP = 0.01f;
 
@@ -75,6 +105,13 @@ namespace POO2.Core
                 m_A.m_position -= m_A.m_invMass * correction;
                 m_B.m_position += m_B.m_invMass * correction;
             }
+        }
+
+        public float PythagoreanSolve(float A, float B)
+        {
+            float result = (float)Math.Sqrt((A * A) + (B * B));
+
+            return result;
         }
     }
 }
