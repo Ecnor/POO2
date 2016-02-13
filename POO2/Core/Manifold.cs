@@ -53,7 +53,7 @@ namespace POO2.Core
             m_A.m_velocity -= m_A.m_invMass * impulse;
             m_B.m_velocity += m_B.m_invMass * impulse;
 
-            /*
+            
             // Friction
             Vector2 rv = m_B.m_velocity - m_A.m_velocity;
 
@@ -77,9 +77,9 @@ namespace POO2.Core
             Debug.WriteLine("frictionImpulse= " + frictionImpulse);
 
             // Apply Friction
-            m_A.m_velocity -= m_A.m_invMass * frictionImpulse;
-            m_B.m_velocity += m_B.m_invMass * frictionImpulse;
-            */
+            m_A.m_velocity -= m_A.m_invMass * frictionImpulse / 1000; //WTF
+            m_B.m_velocity += m_B.m_invMass * frictionImpulse / 1000;
+            
 
             // Correction
             float PERCENT;

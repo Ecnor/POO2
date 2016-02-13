@@ -12,8 +12,8 @@ namespace POO2.Core
         
         public float m_invMass;
         public float m_restitution;
-        public float m_staticFriction = 0.2f;
-        public float m_dynamicFriction = 0.2f;
+        public float m_staticFriction = 0.35f;
+        public float m_dynamicFriction = 0.601f;
 
         public Hitbox m_hitbox;
 
