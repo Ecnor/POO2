@@ -60,6 +60,7 @@
     <Compile Include="Core\Ball.cs" />
     <Compile Include="Core\Circle.cs" />
     <Compile Include="Core\Collisions.cs" />
+    <Compile Include="Core\Cursor.cs" />
     <Compile Include="Core\Environment.cs" />
     <Compile Include="Core\GameObject.cs" />
     <Compile Include="Core\Brick.cs" />
@@ -77,6 +78,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\cursor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\ground_512_64.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
