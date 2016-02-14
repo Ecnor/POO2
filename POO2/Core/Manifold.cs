@@ -52,8 +52,7 @@ namespace POO2.Core
             Vector2 impulse = j * m_normal;
             m_A.m_velocity -= m_A.m_invMass * impulse;
             m_B.m_velocity += m_B.m_invMass * impulse;
-
-            
+      
             // Friction
             Vector2 rv = m_B.m_velocity - m_A.m_velocity;
 
@@ -74,13 +73,13 @@ namespace POO2.Core
                 frictionImpulse = -j * tangent * dynamicFriction;
             }
 
-            Debug.WriteLine("frictionImpulse= " + frictionImpulse);
+            //Debug.WriteLine("frictionImpulse= " + frictionImpulse);
 
             // Apply Friction
             m_A.m_velocity -= m_A.m_invMass * frictionImpulse / 1000; //WTF
             m_B.m_velocity += m_B.m_invMass * frictionImpulse / 1000;
             
-
+            
             // Correction
             float PERCENT;
             const float SLOP = 0.01f;
@@ -98,7 +97,7 @@ namespace POO2.Core
             else
             {
                 // Apply correction          
-                PERCENT = 0.0007f; // usually 20% to 80%
+                PERCENT = 0.8f; // usually 20% to 80%
 
                 Vector2 correction = (Math.Max(m_penetration - SLOP, 0.0f) / massSum) * PERCENT * Vector2.Normalize(m_normal);
 

@@ -25,7 +25,7 @@ namespace POO2.Core
                         }
                     }
                     else if(objectList[i] is Brick && objectList[j] is Brick)
-                    {
+                    {                      
                         Brick b1 = (Brick)objectList[i];
                         Brick b2 = (Brick)objectList[j];
 

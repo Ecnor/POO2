@@ -22,7 +22,10 @@ namespace POO2.Core
             Brick B = (Brick)M.m_B;
 
             // Vector from A to B
-            Vector2 n = B.m_position - A.m_position;
+            //Vector2 n = B.m_position - A.m_position;
+            Vector2 posA = new Vector2((A.m_position.X + (A.m_texture.Width / 2)), (A.m_position.Y + (A.m_texture.Height / 2)));
+            Vector2 posB = new Vector2((B.m_position.X + (B.m_texture.Width / 2)), (B.m_position.Y + (B.m_texture.Height / 2)));
+            Vector2 n = posB - posA;
 
             AABB abox = (AABB)A.m_hitbox;
             AABB bbox = (AABB)B.m_hitbox;
@@ -32,7 +35,7 @@ namespace POO2.Core
             float b_extent = (bbox.m_max.X - bbox.m_min.X) / 2;
 
             // Calculate overlap on x axis
-            float x_overlap = a_extent + b_extent - Math.Abs(n.X);
+            float x_overlap = a_extent + b_extent - Math.Abs(n.X);      
 
             // SAT test on x axis
             if (x_overlap > 0)
@@ -47,17 +50,15 @@ namespace POO2.Core
                 // SAT test on y axis
                 if (y_overlap > 0)
                 {
-                    Vector2 fixNormal;
                     // Find out which axis is axis of least penetration
-                    if (x_overlap > y_overlap)
+                    if (x_overlap < y_overlap)
                     {
                         // Point towards B knowing that n points from A to B
                         if (n.X < 0)
-                            fixNormal = -Vector2.UnitX;
+                            M.m_normal = new Vector2(-1, 0);
                         else
-                            fixNormal = Vector2.UnitX;
+                            M.m_normal = new Vector2(1, 0);
 
-                        M.m_normal = Vector2.Normalize(n) * fixNormal.X;
                         M.m_penetration = x_overlap;
 
                         return true;
@@ -66,11 +67,10 @@ namespace POO2.Core
                     {
                         // Point toward B knowing that n points from A to B
                         if (n.Y < 0)
-                            fixNormal = -Vector2.UnitY;
+                            M.m_normal = new Vector2(0, -1);
                         else
-                            fixNormal = Vector2.UnitY;
-
-                        M.m_normal = Vector2.Normalize(n) * fixNormal.Y;
+                            M.m_normal = new Vector2(0, 1);
+                        
                         M.m_penetration = y_overlap;
 
                         return true;

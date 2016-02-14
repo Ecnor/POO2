@@ -5,7 +5,7 @@ namespace POO2.Core
 {
     class Brick : GameObject
     {
-        public Brick(Vector2 position, Texture2D texture, float mass, float restitution) : base(position, texture, mass, restitution)
+        public Brick(Vector2 position, Texture2D texture, float mass, Material material) : base(position, texture, mass, material)
         {
             Vector2 v1 = new Vector2(m_position.X, m_position.Y);
             Vector2 v2 = new Vector2(m_position.X + m_texture.Width, m_position.Y + m_texture.Height);

@@ -40,21 +40,19 @@ namespace POO2
             // TODO: Add your initialization logic here
             Environment.gravity = new Vector2(0, 100);
 
-            objectList.Add(new Ball(new Vector2(300, 200), Content.Load<Texture2D>("cercle"), 1, 1));
-            objectList.Add(new Ball(new Vector2(250, 200), Content.Load<Texture2D>("cercle"), 1, 1));
-            objectList.Add(new Ball(new Vector2(200, 200), Content.Load<Texture2D>("cercle"), 1, 1));
-            objectList.Add(new Ball(new Vector2(350, 200), Content.Load<Texture2D>("cercle"), 1, 1));
+            objectList.Add(new Brick(new Vector2(200, 468), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
+            objectList.Add(new Brick(new Vector2(235, 468), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
+            objectList.Add(new Brick(new Vector2(215, 436), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
 
-            objectList.Add(new Brick(new Vector2(100, 550), Content.Load<Texture2D>("rectangle600_20"), 0, 0.5f));
-            objectList.Add(new Brick(new Vector2(100, 10), Content.Load<Texture2D>("rectangle600_20"), 0, 0.5f));
+            objectList.Add(new Brick(new Vector2(100, 160), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
+            objectList.Add(new Brick(new Vector2(150, 20), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
+            objectList.Add(new Brick(new Vector2(200, 80), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
+            objectList.Add(new Brick(new Vector2(250, 120), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
+            objectList.Add(new Brick(new Vector2(300, 100), Content.Load<Texture2D>("wooden_crate_32_32"), 1, GameObject.Material.Wood));
 
-            objectList.Add(new Brick(new Vector2(20, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 0.5f));
-            objectList.Add(new Brick(new Vector2(750, 0), Content.Load<Texture2D>("rectangle20_600"), 0, 0.5f));
+            objectList.Add(new Brick(new Vector2(300, 436), Content.Load<Texture2D>("wooden_crate_64_64"), 10, GameObject.Material.Wood));
 
-            objectList[0].m_velocity = new Vector2(10, 50);
-            objectList[1].m_velocity = new Vector2(-10, 50);
-            objectList[2].m_velocity = new Vector2(22, 50);
-            objectList[3].m_velocity = new Vector2(18, 50);
+            objectList.Add(new Brick(new Vector2(100, 500), Content.Load<Texture2D>("ground_512_64"), 0, GameObject.Material.Grass));
 
             base.Initialize();
         }
@@ -68,8 +66,7 @@ namespace POO2
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            
+            // TODO: use this.Content to load your game content here          
         }
 
         /// <summary>

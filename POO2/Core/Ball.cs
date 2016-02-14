@@ -5,7 +5,7 @@ namespace POO2.Core
 {
     class Ball : GameObject
     {
-        public Ball(Vector2 position, Texture2D texture, float mass, float restitution) : base(position, texture, mass, restitution)
+        public Ball(Vector2 position, Texture2D texture, float mass, Material material) : base(position, texture, mass, material)
         {
             Vector2 v = new Vector2(m_position.X + (m_texture.Width / 2), m_position.Y + (m_texture.Height / 2));
             m_hitbox = new Circle(m_texture.Width / 2, v);
